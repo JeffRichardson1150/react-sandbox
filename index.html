@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Eventful Preview</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="app/iframe.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://api.eventful.com/js/api"></script>
+    <script src="app/app.js"></script>
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>Eventful Preview</h1>
+        <form id="event-search">
+          <div class="text-input">
+            <label for="event-location">Location:</label>
+            <input id="event-location" class="form-control" type="text" name="location" value="" placeholder="(e.g. New York or 10018)">
+          </div>
+          <div class="text-input">
+            <label for="event-keyword">Keyword:</label>
+            <input id="event-keyword" class="form-control" type="text" name="keyword" value="" placeholder="(e.g. Artist or Keyword)">
+          </div>
+          <button id="event-submit" type="submit">Submit</button>
+        </form>
+      </div>
+    </header>
+    <div id="ytplayer">Search for events and browse video previews!</div>
+    <main>
+      <div id="content"></div>
+    </main>
+    <footer>
+      <div class="eventful-badge eventful-large">
+        <img src="http://api.eventful.com/images/powered/eventful_139x44.gif"
+          alt="Local Events, Concerts, Tickets">
+        <p><a target="_blank" href="http://eventful.com/">Events</a> by Eventful</p>
+      </div>
+    </footer>
+  </body>
+</html>

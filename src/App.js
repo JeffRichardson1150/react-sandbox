@@ -1,26 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
 
-function App() {
+// Need to put the following line in index.html.  We put it in the head after the <meta>s
+//     <script type="text/javascript" src="http://api.eventful.com/js/api"></script>
+
+
+let _oArgs = {
+  app_key: "tQrWMD6FT4Thf7D4",
+  category: "music",
+  q: "Music",
+  where: "New York City Metro Area",
+  page_size: 25,
+  image_sizes: "large,medium",
+  sort_order: "popularity",
+  within: 5
+};
+
+const App = () => {
+
+  // const [results, setResults] = useState([]);
+  const [EVDB, setEVDB] = useState(undefined);
+
+
+  const fetchResults = () => {
+    if (EVDB) {
+      EVDB.API.call("/events/search", _oArgs, function (oData) {
+        console.log(`****** in fetchResults. completed EVDB.API.call. oData = ${oData}`)
+      })
+    } else {
+    }
+  }
+
+  useEffect(() => {
+    setEVDB(window.EVDB)
+    fetchResults()
+  // }, [fetchResults])
+
+  })
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+
+      {console.log(`******************** in the return. EVDB = ${EVDB}[0]`)}
+        Print on the screen from the return()
+        <p>{EVDB}</p>
     </div>
-  );
-}
+  )
+};
 
 export default App;

@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+# per the github example I'm running
+.DS_Store
+
 # testing
 /coverage
 
